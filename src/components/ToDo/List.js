@@ -3,7 +3,7 @@ import Task from './Task'
 
 const List = (props) => (
     <div>
-        <Task/>
+        {props.tasks.map(task => <Task name={task.name}/>)}
     </div>
 )
 

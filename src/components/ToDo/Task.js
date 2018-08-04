@@ -4,7 +4,7 @@ import Delete from 'material-ui/svg-icons/action/delete'
 
 const Task = (props) => (
     <MenuItem
-    primaryText={'Task 1'} 
+    primaryText={props.name} 
     rightIcon={<Delete onClick={()=>alert('click')} />}
     />
 )

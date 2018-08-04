@@ -4,14 +4,22 @@ import List from './List'
 import Container from '../Container'
 
 class ToDo extends React.Component {
+    state = {
+        tasks: [
+            { name: 'naczynia', uid: '1234' },
+            { name: 'śmieci', uid: '2345' },
+            { name: 'pranie', uid: '3456' }
+        ]
+    }
     render() {
         return (
             <div>
                 <Container>
-                <Form />
+                    <Form />
                 </Container>
                 <Container>
-                <List />
+                    <List
+                        tasks={this.state.tasks} />
                 </Container>
             </div>
         )
