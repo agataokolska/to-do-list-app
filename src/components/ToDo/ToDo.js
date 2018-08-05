@@ -2,15 +2,14 @@ import React from 'react'
 import Form from './Form'
 import List from './List'
 import Container from '../Container'
-import { red500 } from 'material-ui/styles/colors';
 
 
 class ToDo extends React.Component {
     state = {
         tasks: [
-            { name: 'naczynia', uid: '1234', isCompleted: true },
+            { name: 'naczynia', uid: '1234', isCompleted: false },
             { name: 'śmieci', uid: '2345', isCompleted: false },
-            { name: 'pranie', uid: '3456', isCompleted: true }
+            { name: 'pranie', uid: '3456', isCompleted: false }
         ],
         newTaskName: '',
         isCompleted: false
