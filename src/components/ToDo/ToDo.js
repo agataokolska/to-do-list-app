@@ -13,13 +13,15 @@ class ToDo extends React.Component {
         newTaskName: ' '
     }
     addTask = (taskName) => {
+        if(!this.state.newTasksName) return
         const newTask = {
             name: this.state.newTaskName,
-            uid: Date.now
+            uid: Date.now()
         }
         const newTasks = this.state.tasks.concat(newTask)
         this.setState({
-            tasks:newTasks
+            tasks:newTasks,
+            newTaskName: ' '
         })
     }
 
