@@ -2,15 +2,18 @@ import React from 'react'
 import Form from './Form'
 import List from './List'
 import Container from '../Container'
+import { red500 } from 'material-ui/styles/colors';
+
 
 class ToDo extends React.Component {
     state = {
         tasks: [
-            { name: 'naczynia', uid: '1234' },
-            { name: 'śmieci', uid: '2345' },
-            { name: 'pranie', uid: '3456' }
+            { name: 'naczynia', uid: '1234', isCompleted: true },
+            { name: 'śmieci', uid: '2345', isCompleted: false },
+            { name: 'pranie', uid: '3456', isCompleted: true }
         ],
-        newTaskName: ' '
+        newTaskName: '',
+        isCompleted: false
     }
 
 
@@ -33,17 +36,18 @@ class ToDo extends React.Component {
     }
 
     addTask = () => {
-        if (this.state.newTaskName === ' ') return
+        if (this.state.newTaskName === '') return
 
         const newTask = {
             name: this.state.newTaskName,
-            uid: Date.now()
+            uid: Date.now(),
+            isCompleted: this.state.isCompleted
         }
         const newTasks = this.state.tasks.concat(newTask)
 
         this.setState({
             tasks: newTasks,
-            newTaskName: ' '
+            newTaskName: ''
         })
     }
 
@@ -53,6 +57,15 @@ class ToDo extends React.Component {
             tasks: newTasks
         })
     }
+
+    markCompleteTask = (index) => {
+        const newTasks = this.state.tasks
+        newTasks[index].isCompleted = !newTasks[index].isCompleted
+        this.setState({
+            tasks: newTasks
+        })
+    }
+
     render() {
         return (
             <div>
@@ -66,7 +79,8 @@ class ToDo extends React.Component {
                 <Container>
                     <List
                         tasks={this.state.tasks}
-                        deleteTask={this.deleteTask} />
+                        deleteTask={this.deleteTask}
+                        markCompleteTask={this.markCompleteTask} />
                 </Container>
             </div>
         )

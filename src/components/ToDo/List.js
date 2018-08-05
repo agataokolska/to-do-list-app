@@ -3,10 +3,13 @@ import Task from './Task'
 
 const List = (props) => (
     <div>
-        {props.tasks.map(task => (
+        {props.tasks.map((task, index) => (
             <Task
                 name={task.name}
-                deleteTask2={() => props.deleteTask(task.uid)} />
+                key={task.uid}
+                deleteTask2={() => props.deleteTask(task.uid)}
+                markCompleteTask2={() => props.markCompleteTask(index)}
+            />
         )
         )}
     </div>
