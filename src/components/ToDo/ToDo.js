@@ -12,6 +12,20 @@ class ToDo extends React.Component {
         ],
         newTaskName: ' '
     }
+
+
+    componentDidMount() {
+        const lastState = JSON.parse(localStorage.getItem('to-do-react-app-state'))
+
+        if (lastState === null) return
+
+        this.setState(lastState)
+    }
+
+    componentDidUpdate() {
+        localStorage.setItem('to-do-react-app-state', JSON.stringify(this.state))
+    }
+
     onNewTaskChange = (event, value) => {
         this.setState({
             newTaskName: value
