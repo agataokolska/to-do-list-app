@@ -9,6 +9,7 @@ const List = (props) => (
                 key={task.uid}
                 deleteTask2={() => props.deleteTask(task.uid)}
                 markCompleteTask2={() => props.markCompleteTask(index)}
+                updateCheck={() => props.updateCheck.bind(this)}
             />
         )
         )}

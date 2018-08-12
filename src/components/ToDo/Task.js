@@ -8,7 +8,9 @@ const Task = (props) => (
     <ListItem
         primaryText={props.name}
         leftIcon={<Delete onClick={props.deleteTask2} />}
-        rightIcon={<Checkbox onClick={props.markCompleteTask2} />}
+        rightIcon={<Checkbox
+            checked={props.updateCheck.bind(this)} 
+            onCheck={props.markCompleteTask2} />}
     />
 )
 

@@ -7,12 +7,13 @@ import Container from '../Container'
 class ToDo extends React.Component {
     state = {
         tasks: [
-            { name: 'naczynia', uid: '1234', isCompleted: false },
-            { name: 'śmieci', uid: '2345', isCompleted: false },
-            { name: 'pranie', uid: '3456', isCompleted: false }
+           // { name: 'naczynia', uid: '1234', isCompleted: false },
+           // { name: 'śmieci', uid: '2345', isCompleted: false },
+           // { name: 'pranie', uid: '3456', isCompleted: false }
         ],
         newTaskName: '',
-        isCompleted: false
+        isCompleted: false,
+        checked: false
     }
 
 
@@ -40,7 +41,8 @@ class ToDo extends React.Component {
         const newTask = {
             name: this.state.newTaskName,
             uid: Date.now(),
-            isCompleted: this.state.isCompleted
+            isCompleted: this.state.isCompleted,
+            checked: this.state.checked
         }
         const newTasks = this.state.tasks.concat(newTask)
 
@@ -65,6 +67,14 @@ class ToDo extends React.Component {
         })
     }
 
+    updateCheck = () => {
+        this.setState((oldState) => {
+          return {
+            checked: !oldState.checked,
+          };
+        });
+      }
+    
     render() {
         return (
             <div>
@@ -79,7 +89,9 @@ class ToDo extends React.Component {
                     <List
                         tasks={this.state.tasks}
                         deleteTask={this.deleteTask}
-                        markCompleteTask={this.markCompleteTask} />
+                        markCompleteTask={this.markCompleteTask} 
+                        updateCheck={this.updateCheck.bind(this)}
+                        />
                 </Container>
             </div>
         )
