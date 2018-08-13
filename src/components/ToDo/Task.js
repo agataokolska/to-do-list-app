@@ -9,7 +9,8 @@ const Task = (props) => (
         primaryText={props.name}
         leftIcon={<Delete onClick={props.deleteTask2} />}
         rightIcon={<Checkbox
-            onCheck={props.updateCheck.bind(this)} 
+            checked={props.checked}
+            onCheck={props.updateCheck} 
             onClick={props.markCompleteTask2} />}
     />
 )
