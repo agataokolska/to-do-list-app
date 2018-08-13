@@ -22,7 +22,7 @@ class Checkboxa extends React.Component {
     componentDidUpdate() {
         localStorage.setItem('to-do-react-app-state-checkbox', JSON.stringify(this.state))
     }
-    updateCheck() {
+    updateCheck = ()=> {
         this.setState((oldState) => {
             return {
                 checked: !oldState.checked,
@@ -43,7 +43,7 @@ class Checkboxa extends React.Component {
                 <Checkbox
                     
                     checked={this.state.checked}
-                    onCheck={this.updateCheck.bind(this)}
+                    onCheck={this.updateCheck}
                 />
             </div>
         )

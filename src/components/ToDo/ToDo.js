@@ -62,6 +62,7 @@ class ToDo extends React.Component {
     markCompleteTask = (index) => {
         const newTasks = this.state.tasks
         newTasks[index].isCompleted = !newTasks[index].isCompleted
+        newTasks[index].checked = !newTasks[index].checked
         this.setState({
             tasks: newTasks
         })
