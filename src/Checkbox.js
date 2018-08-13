@@ -1,3 +1,5 @@
+//this component is here only for testing of how checkboxes works in react
+
 import React from 'react'
 import Checkbox from 'material-ui/Checkbox'
 import { ListItem } from 'material-ui/List'
