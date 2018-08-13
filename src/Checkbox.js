@@ -5,11 +5,14 @@ import { ListItem } from 'material-ui/List'
 class Checkboxa extends React.Component {
 
     state = {
-        checked: false,
+        checkboxes:[
+            
+        ],
+        checked: false
     }
 
     componentDidMount() {
-        const lastState = JSON.parse(localStorage.getItem('to-do-react-app-state'))
+        const lastState = JSON.parse(localStorage.getItem('to-do-react-app-state-checkbox'))
 
         if (lastState === null) return
 
@@ -17,7 +20,7 @@ class Checkboxa extends React.Component {
     }
 
     componentDidUpdate() {
-        localStorage.setItem('to-do-react-app-state', JSON.stringify(this.state))
+        localStorage.setItem('to-do-react-app-state-checkbox', JSON.stringify(this.state))
     }
     updateCheck() {
         this.setState((oldState) => {
@@ -26,6 +29,13 @@ class Checkboxa extends React.Component {
             };
         });
     }
+    // updateCheck() {
+    //     const isChecked = this.state.checkboxes
+    //     isChecked.checked = !isChecked.checked
+    //     this.setState({
+    //             checked: isChecked})
+          
+    // }
     render() {
         return (
             <div>

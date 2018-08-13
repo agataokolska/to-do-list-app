@@ -74,6 +74,14 @@ class ToDo extends React.Component {
           };
         });
       }
+
+    //   updateCheck() {
+    //     const isChecked = this.state.checkboxes
+    //     isChecked.checked = !isChecked.checked
+    //     this.setState({
+    //             checked: isChecked})
+          
+    // }
     
     render() {
         return (
