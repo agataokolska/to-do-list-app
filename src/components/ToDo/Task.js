@@ -10,7 +10,7 @@ const Task = (props) => (
         leftIcon={<Delete onClick={props.deleteTask2} />}
         rightIcon={<Checkbox
             checked={props.checked}
-            onCheck={props.updateCheck} 
+            onCheck={props.updateCheck}
             onClick={props.markCompleteTask2} />}
     />
 )
